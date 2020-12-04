@@ -22,6 +22,8 @@ New security measures are assigned to a category in the digital trust dashboard 
 
 ![image of the digital trust dashboard model](/Digital-Trust-Dashboard.png)
 
+A digital trust benchmarking could for instance be done as follows: https://github.com/efoth/digital-trust-level/blob/main/Digital-Trust-Benchmarking-Example.txt.
+
 
 ## Data sources and AI methods
 
