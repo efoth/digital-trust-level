@@ -20,6 +20,8 @@ In my professional career, I was as CIO and CTO responsible for the digitalizati
 
 New security measures are assigned to a category in the digital trust dashboard to determine the level of security that can be achieved. This can be used by employees and managers of any organization. Parts of it can be used for private purposes too.
 
+![image of the digital trust dashboard model](/Digital-Trust-Dashboard.png)
+
 
 ## Data sources and AI methods
 
