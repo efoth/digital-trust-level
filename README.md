@@ -4,7 +4,7 @@ a Building AI course project
 
 ## Summary
 
-Comprehensive networking requires adequate security measures for data and information systems. Threats to privacy, integrity and availability of data and systems must be averted. The status of digital trust should be checked regularly.
+Comprehensive networking requires adequate security measures for data and information systems. Threats to privacy, integrity and availability of data and systems must be averted. The level of digital trust should be checked regularly.
 
 
 ## Background
