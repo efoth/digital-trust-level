@@ -1,9 +1,12 @@
 import numpy as np
 
-criteria = ['Policies', 'Systems adaptation', 'Impact assessment as standard', 'ITIL based implementation', 'Security information manager', 'Security information manager', 'Security policy', 'Security clearance', 'ISO 27001 certification', 'Prevention', 'Detection', 'Reaction', 'Document signing', 'E-mail security', 'Files & Storage location']
+criteria = ['Data protection policies', 'Systems adaptation', 'Impact assessment as standard', 'ITIL based implementation', 'Security information manager', 'Security policy', 'Security clearance', 'ISO 27001 certification', 'Attack Prevention', 'Attack Detection', 'Attack Reaction', 'Document signing', 'E-mail security', 'Files & Storage location']
 
-criteriaweights = np.array([3,2,1,3,3,4,2,1,5,5,5,2,3,3])
-level = np.array([1,2,3])
+level = [['Missing', 'Planned / Designed', 'Missing', 'Planned', 'Planned', 'Planned', 'In Place', 'Planned', 'None', 'None', 'Uncoordinated', 'Missing', 'Missing', 'Missing'],
+['In Progress', 'Started', 'In Preparation', 'In Implementation', 'In Implementation', 'In Preparation', 'Renewed', 'In Preparation', 'Partially done', 'Partially done', 'Reactions planned', 'Planned', 'In Preparation', 'In Preparation'],
+['Released', 'Completed', 'Implemented', 'Available', 'Available', 'Released', 'Regularly checked', 'Available', 'Comprehensively done', 'Comprehensively done', 'Team in place', 'In place', 'Available', 'Available']]
+
+criteriaweights = np.array([14,13,12,6,7,11,3,1,10,8,9,4,5,2])
 
 # an average organization
 benchmark = np.array([3,1,3,3,3,3,2,2,2,2,2,2,2,2]) 
@@ -11,33 +14,52 @@ benchmark = np.array([3,1,3,3,3,3,2,2,2,2,2,2,2,2])
 # a random example
 to_be_evaluated = np.array([2,1,1,2,2,2,1,1,1,2,1,1,1,1])   
     
-# Example benchmarking program which is still w/o any predictions
+# Benchmarking program
 def main():
 
    print('Results of the digital trust benchmarking')
    print(' ')
    
-   overalltbe = to_be_evaluated @ criteriaweights
-   print('Status score: ', overalltbe)
+   nb_of_criterias = len(criteriaweights)
+   overalltbeval = to_be_evaluated @ criteriaweights
+   print('Status score: ', overalltbeval)
+   print(' ')
+   
+   # Status of the organization to be evaluated
+   for i in range(nb_of_criterias):
+       print(criteria[i],': ',level[to_be_evaluated[i]-1][i],'(',to_be_evaluated[i],')')
+   print(' ')
    
    overallbm = benchmark @ criteriaweights
    print('Benchmark score: ', overallbm)
    print(' ')
    
-   if overalltbe < overallbm:
+   if overalltbeval < overallbm:
        print('The organization to be evaluated is below benchmark.')
-   elif overalltbe == overallbm:
+   elif overalltbeval == overallbm:
        print('The organization to be evaluated corresponds to benchmark.')
    else:
        print('The organization to be evaluated is better than benchmark.')
    print(' ')
    
-   maxscore = criteriaweights @ np.full((len(criteriaweights)),3, dtype=np.int)
-   if overalltbe > maxscore * 2/3:
+   maxlevel = np.full((nb_of_criterias),3, dtype=np.float)
+   maxscore = criteriaweights @ maxlevel
+   if overalltbeval > maxscore * 2/3:
        print('An Overall Digital Trust Level 3, i.e. the highest level, has been reached.')
-   elif overalltbe > maxscore * 1/3:
+   elif overalltbeval > maxscore * 1/3:
        print('An Overall Digital Trust Level 2, i.e. the medium level, has been reached.')
    else:
        print('An Overall Digital Trust Level 1, i.e. the lowest level, has been reached.')
+   print(' ')
+       
+   # Identification of the greatest potential for improvement
+   dist = 0
+   maxdist = dist
+   for i in range(nb_of_criterias):
+       dist = criteriaweights[i]*(maxlevel[i]-to_be_evaluated[i])
+       if dist > maxdist:
+           maxdist = dist
+           maxcriteria = criteria[i]
+   print('Measures in the following category allow the greatest improvement: ',maxcriteria)
 
 main()
