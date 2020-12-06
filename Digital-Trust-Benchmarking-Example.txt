@@ -1,6 +1,6 @@
 import numpy as np
 
-criteria = ['Data protection policies', 'Systems adaptation', 'Impact assessment as standard', 'ITIL based implementation', 'Security information manager', 'Security policy', 'Security clearance', 'ISO 27001 certification', 'Attack Prevention', 'Attack Detection', 'Attack Reaction', 'Document signing', 'E-mail security', 'Files & Storage location']
+criteria = ['Data protection policies', 'Systems adaptation', 'Impact assessment as standard', 'ITIL based implementation', 'Security information manager', 'Security policy', 'Security clearance', 'ISO 27001 certification', 'Attack Prevention', 'Attack Detection', 'Attack Reaction', 'Document signing', 'E-mail security', 'Files & Storage location classification']
 
 level = [['Missing', 'Planned / Designed', 'Missing', 'Planned', 'Planned', 'Planned', 'In Place', 'Planned', 'None', 'None', 'Uncoordinated', 'Missing', 'Missing', 'Missing'],
 ['In Progress', 'Started', 'In Preparation', 'In Implementation', 'In Implementation', 'In Preparation', 'Renewed', 'In Preparation', 'Partially done', 'Partially done', 'Reactions planned', 'Planned', 'In Preparation', 'In Preparation'],
@@ -18,6 +18,7 @@ to_be_evaluated = np.array([2,1,1,2,2,2,1,1,1,2,1,1,1,1])
 def main():
 
    print('Results of the digital trust benchmarking')
+   print('_________________________________________')
    print(' ')
    
    nb_of_criterias = len(criteriaweights)
