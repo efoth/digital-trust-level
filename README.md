@@ -13,8 +13,6 @@ With the increasing networking of objects, people and organizations, companies a
 
 A digital trust dashboard is a very good way to illustrate the level of security achieved. The aim of this project is to predict the effectiveness of improvement measures in such a way that optimal prioritization is achieved.
 
-In my professional career, I was as CIO and CTO responsible for the digitalization of large companies and have gained diverse practical experience.
-
 
 ## How is it used?
 
@@ -29,7 +27,7 @@ A digital trust benchmarking could for instance be done as follows: https://gith
 
 ## Data sources and AI methods
 
-The dashboard can be filled with data from different organizational units, making it suitable for both assessing the effectiveness of planned security measures and for benchmarking. Since the data is usually kept confidentially, it is very likely that each corporation will build its own data model.
+The dashboard can be filled with data from different organizational units, making it suitable for both assessing the effectiveness of planned security measures and for benchmarking. Since the data is usually kept confidentially, it is very likely that each corporation will build its own data model. A linear regression approach is used in the example.
 
 
 ## Challenges
